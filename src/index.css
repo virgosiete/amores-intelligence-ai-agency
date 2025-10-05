@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Accessibility and Readability Improvements */
+
+/* Better font rendering for all users */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Dyslexia-friendly improvements */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-feature-settings: "liga" 0; /* Disable ligatures that can confuse dyslexic readers */
+  letter-spacing: 0.025em; /* Slightly increase letter spacing */
+  word-spacing: 0.1em; /* Increase word spacing */
+}
+
+/* Improved heading hierarchy and spacing */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 0.75em;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.25;
+}
+
+/* Improved paragraph spacing and readability */
+p {
+  line-height: 1.6;
+  margin-bottom: 1em;
+  max-width: 75ch; /* Optimal reading width */
+}
+
+/* Better list spacing */
+ul, ol {
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Improved focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #a855f7;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Better text selection contrast */
+::selection {
+  background-color: #a855f7;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #a855f7;
+  color: white;
+}
+
+/* Improved form accessibility */
+input, textarea, select {
+  font-size: 16px; /* Prevents zoom on iOS */
+  line-height: 1.5;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+/* Better spacing for interactive elements */
+button, .btn {
+  min-height: 44px; /* Minimum touch target size */
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  
+  .text-gray-600,
+  .text-gray-700 {
+    color: #000000 !important;
+  }
+  
+  .text-purple-100,
+  .text-purple-200 {
+    color: #ffffff !important;
+  }
+}
+
+/* Better responsive typography */
+@media (min-width: 640px) {
+  body {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+/* Skip link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #a855f7;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
